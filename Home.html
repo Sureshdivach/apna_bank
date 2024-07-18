@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
-   
 </head>
 
 <body>
@@ -17,10 +16,10 @@
                     alt="">
             </div>
             <div class="link_div">
-                <a href="./index.html">Home</a>
+                <a href="./Home.html">Home</a>
                 <a href="./gallery.html">Gallery</a>
                 <a href="./registration.html">Registration</a>
-                <a href="./login.html">login</a>
+                <a href="./index.html">log out</a>
             </div>
             <div class="menu_div">
                 <span>&#9776;</span>
@@ -28,20 +27,9 @@
         </nav>
         <div class="section">
 
-            <form id="form">
-                <h2>Login form</h2>
-                 <label for="">Email:-</label><br>
-                <input type="email" name="email" id="email" placeholder="Enter your email"><br><br>
-                <label for="">Password:- </label><br>
-                <input type="password" name="password" id="password" placeholder="Enter your password"><br><br>
-                <div class="btns">
-                    <button id="btn">Login</button>
-                </div>
-                <label for=""> Don't have an account:-<a href="./registration.html">Click here to Register</a></label>
-
-
-
-            </form>
+            <div>
+                <img src="https://www.caknowledge.in/wp-content/uploads/2018/02/BOI-Bank-Net-Banking.jpg" alt="">
+            </div>
         </div>
         <marquee behavior="" direction="">
 
@@ -62,10 +50,18 @@
             </div>
             <div class="child_container">
 
-                <img src="https://bankofindia.co.in/documents/20121/23264131/NeoMobilehomepage.png/0c3cb159-5461-cfa9-3e4c-d755bf824d6a?t=1707811721801"
-                    alt="" style="width: 100%; height: 760px;">
+                <h1>Welcome to Bank of India
+                    <img src="https://logos-world.net/wp-content/uploads/2020/11/Bank-of-India-Emblem.png" alt="">
+                </h1>
+                <div class="bank">
+                    <h1>Avl.balance: <span id="balance">0</span> </h1><br><br>
+                    <input type="number" name="" id="abc" placeholder="enter amount details"><br><br><br>
+                    <div class="btn">
+                        <button id="cradit">cradit</button>
+                        <button id="Withdraw">Withdraw </button>
+                    </div>
 
-
+                </div>
             </div>
         </div>
         <footer>
@@ -73,8 +69,7 @@
                 <div>
 
                     <p>
-                    <h3>contact Us</h3>
-                    <hr>
+                    <h3>contact Us</h3> <hr>
                     india: <br><br>
                     1800 103 1906 (toll free) <br><br>
                     1800 220 229 (toll free-COVID Support) <br><br>
@@ -86,8 +81,7 @@
                 <div>
 
                     <p>
-                    <h3>Quick Access</h3>
-                    <hr>
+                    <h3>Quick Access</h3><hr>
                     Interest Rate <br>
                     Service Charge <br>
                     Policies & Guidelines <br>
@@ -101,8 +95,7 @@
                 <div>
 
                     <p>
-                    <h3>Internal Engagements</h3>
-                    <hr>
+                    <h3>Internal Engagements</h3> <hr>
                     Media Center <br>
                     Regional Rural Banks <br>
                     Treasury <br>
@@ -113,43 +106,13 @@
                     </p>
                 </div>
             </div>
-            <div class="copyright">
-                <h4>Developer:- Shri Suresh Kumar Hc ,Tcg SCRB , Rajasthan, Copyright © 2024 . All rights reserved.
-                    Disclaimer
-                    Website Last Updated : Jul 11, 2024</h4>
-            </div>
+              <div class="copyright"> <h4>Developer:- Shri Suresh Kumar Hc ,Tcg SCRB , Rajasthan, Copyright © 2024 . All rights reserved. Disclaimer
+                Website Last Updated : Jul 11, 2024</h4></div>
         </footer>
 
 
     </div>
 </body>
-
-<script>
-    let arrforlogin = JSON.parse(localStorage.getItem("users")) || []
-    let form = document.getElementById("form")
-    let btn=document.getElementById("btn")
-    btn.addEventListener("click",logindetails)
-    function logindetails(e) {
-        e.preventDefault()
-        let newobj = {
-             email:document.getElementById("email").value,
-            password:document.getElementById("password").value,
-        }
-       let valueCheck=arrforlogin.find((ele)=>(
-        ele.email===newobj.email && ele.password===newobj.password
-       ))
-       if(valueCheck){
-        localStorage.setItem("loggedInuser", JSON.stringify(valueCheck))
-        
-        alert("login success")
-       window.location.href="index.html"
-       }else{
-        alert("login failed")
-        }
-        }
-        form.reset
-
-
-</script>
+<script src="./index.js"></script>
 
 </html>

@@ -6,31 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
-   
+
 </head>
 
 <body>
     <div class="main_container">
-        <nav>
-            <div class="logo">
-                <img src="https://www.pngitem.com/pimgs/m/531-5313435_bank-png-free-download-vector-bank-logo-png.png"
-                    alt="">
-            </div>
-            <div class="link_div">
-                <a href="./index.html">Home</a>
-                <a href="./index.html">Gallery</a>
-                <a href="./registration.html">Registration</a>
-                <a href="./index.html">login</a>
-            </div>
-            <div class="menu_div">
-                <span>&#9776;</span>
-            </div>
-        </nav>
         <div class="section">
 
             <form id="form">
                 <h2>Login form</h2>
-                 <label for="">Email:-</label><br>
+                <label for="">Email:-</label><br>
                 <input type="email" name="email" id="email" placeholder="Enter your email"><br><br>
                 <label for="">Password:- </label><br>
                 <input type="password" name="password" id="password" placeholder="Enter your password"><br><br>
@@ -39,87 +24,8 @@
                 </div>
                 <label for=""> Don't have an account:-<a href="./registration.html">Click here to Register</a></label>
 
-
-
             </form>
         </div>
-        <marquee behavior="" direction="">
-
-            <P>BEWARE !! Never disclose your OTP/PIN/CVV/Expiry date/Card Number to anybody over phone or any other
-                media. Only fraudsters are asking such details. <br>
-                सावधान !! कभी भी अपना कार्ड संख्या/पिन/सीवीवी/ओटीपी/समाप्ति तिथि किसी को मोबाइल कॉल/ई-मेल पर नहीं बताए।
-                यह आपके लिये धोखाधड़ी/फ़्रौड का कारण बन सकता है।
-            </P>
-        </marquee>
-
-        <div class="aside">
-
-            <div class="child_container1">
-                <div>
-                    <img src="https://cdn.zeebiz.com/sites/default/files/2023/07/28/253712-bot-twitter.jpg" alt="">
-
-                </div>
-            </div>
-            <div class="child_container">
-
-                <img src="https://bankofindia.co.in/documents/20121/23264131/NeoMobilehomepage.png/0c3cb159-5461-cfa9-3e4c-d755bf824d6a?t=1707811721801"
-                    alt="" style="width: 100%; height: 760px;">
-
-
-            </div>
-        </div>
-        <footer>
-            <div class="footer_div">
-                <div>
-
-                    <p>
-                    <h3>contact Us</h3>
-                    <hr>
-                    india: <br><br>
-                    1800 103 1906 (toll free) <br><br>
-                    1800 220 229 (toll free-COVID Support) <br><br>
-                    (022) - 40919191 (Chargeable number) 24X7 <br><br>
-                    For Overseas Contact <a href="">Click Here</a>
-
-                    </p>
-                </div>
-                <div>
-
-                    <p>
-                    <h3>Quick Access</h3>
-                    <hr>
-                    Interest Rate <br>
-                    Service Charge <br>
-                    Policies & Guidelines <br>
-                    Doorstep banking <br>
-                    Smart Banking <br>
-                    Safe Banking <br>
-                    BCSBI <br>
-                    IBBI panel of Insolvency Professionals for Jul 1, 2024 to Dec 31, 2024 <br>
-                    4th National Online Quiz on Insolvency and Bankruptcy Code, 2016</p>
-                </div>
-                <div>
-
-                    <p>
-                    <h3>Internal Engagements</h3>
-                    <hr>
-                    Media Center <br>
-                    Regional Rural Banks <br>
-                    Treasury <br>
-                    Training Centres <br>
-                    Auditors Of The Bank <br>
-                    CVC link for integrity pledge <br>
-                    Syndicate Asba
-                    </p>
-                </div>
-            </div>
-            <div class="copyright">
-                <h4>Developer:- Shri Suresh Kumar Hc ,Tcg SCRB , Rajasthan, Copyright © 2024 . All rights reserved.
-                    Disclaimer
-                    Website Last Updated : Jul 11, 2024</h4>
-            </div>
-        </footer>
-
 
     </div>
 </body>
@@ -127,27 +33,33 @@
 <script>
     let arrforlogin = JSON.parse(localStorage.getItem("users")) || []
     let form = document.getElementById("form")
-    let btn=document.getElementById("btn")
-    btn.addEventListener("click",logindetails)
+    let btn = document.getElementById("btn")
+    btn.addEventListener("click", logindetails)
     function logindetails(e) {
         e.preventDefault()
         let newobj = {
-             email:document.getElementById("email").value,
-            password:document.getElementById("password").value,
+            email: document.getElementById("email").value,
+            password: document.getElementById("password").value,
         }
-       let valueCheck=arrforlogin.find((ele)=>(
-        ele.email===newobj.email && ele.password===newobj.password
-       ))
-       if(valueCheck){
-        localStorage.setItem("loggedInuser", JSON.stringify(valueCheck))
-        
-        alert("login success")
-       window.location.href="Home.html"
-       }else{
-        alert("login failed")
+        if(newobj.email=="" && newobj.password==""){
+            alert("please enter your details ")
+            return;
+        }  
+        let valueCheck = arrforlogin.find((ele) => (
+            ele.email === newobj.email && ele.password === newobj.password
+        ))
+        if (valueCheck) {
+            localStorage.setItem("loggedInuser", JSON.stringify(valueCheck))
+
+            alert("login success")
+            window.location.href = "Home.html"
+        } else {
+            alert("login failed please register  your details first")
+            window.location.href="registration.html"
+
         }
-        }
-        form.reset
+    }
+    form.reset
 
 
 </script>
